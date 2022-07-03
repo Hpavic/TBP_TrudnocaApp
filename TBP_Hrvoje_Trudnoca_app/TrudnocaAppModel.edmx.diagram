@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a3cf07978224e4d851eb8bb398de424" Name="Diagram1">
+        <EntityTypeShape EntityType="TrudnocaAppModel.Beba" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Korisnici" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Registar" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Udarci" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Velicina" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__Beba__IdKorisnik__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__Registar__IdKori__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__Udarci__IdKorisn__34C8D9D1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrudnocaAppModelStoreContainer" CdmEntityContainer="TrudnocaAppEntities">
+    <EntitySetMapping Name="Beba">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Beba">
+        <MappingFragment StoreEntitySet="Beba">
+          <ScalarProperty Name="IdBebe" ColumnName="IdBebe" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Spol" ColumnName="Spol" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnici">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Korisnici">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+          <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Godine" ColumnName="Godine" />
+          <ScalarProperty Name="PrvaTrudnoca" ColumnName="PrvaTrudnoca" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registar">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Registar">
+        <MappingFragment StoreEntitySet="Registar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+          <ScalarProperty Name="VrstaPromjene" ColumnName="VrstaPromjene" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Udarci">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Udarci">
+        <MappingFragment StoreEntitySet="Udarci">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatumPocetak" ColumnName="DatumPocetak" />
+          <ScalarProperty Name="DatumKraj" ColumnName="DatumKraj" />
+          <ScalarProperty Name="Udarci1" ColumnName="Udarci" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Velicina">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Velicina">
+        <MappingFragment StoreEntitySet="Velicina">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PocetniMjesec" ColumnName="PocetniMjesec" />
+          <ScalarProperty Name="ZavrsniMjesec" ColumnName="ZavrsniMjesec" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

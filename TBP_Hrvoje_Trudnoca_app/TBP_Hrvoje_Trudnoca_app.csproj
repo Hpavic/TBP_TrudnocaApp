@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A526299-4B13-4041-BA7E-31F66C82591B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TBP_Hrvoje_Trudnoca_app</RootNamespace>
+    <AssemblyName>TBP_Hrvoje_Trudnoca_app</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Beba.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmAzurirajKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzurirajKorisnika.Designer.cs">
+      <DependentUpon>frmAzurirajKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMojaBeba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMojaBeba.Designer.cs">
+      <DependentUpon>frmMojaBeba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPocetna.Designer.cs">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistracija.Designer.cs">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUdarci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUdarci.Designer.cs">
+      <DependentUpon>frmUdarci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnici.code.cs" />
+    <Compile Include="Korisnici.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmTrudnocaAppMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrudnocaAppMain.Designer.cs">
+      <DependentUpon>frmTrudnocaAppMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registar.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TrudnocaAppModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrudnocaAppModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrudnocaAppModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrudnocaAppModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrudnocaAppModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Udarci.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Velicina.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAzurirajKorisnika.resx">
+      <DependentUpon>frmAzurirajKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMojaBeba.resx">
+      <DependentUpon>frmMojaBeba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPocetna.resx">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistracija.resx">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUdarci.resx">
+      <DependentUpon>frmUdarci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="frmTrudnocaAppMain.resx">
+      <DependentUpon>frmTrudnocaAppMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="TrudnocaAppModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrudnocaAppModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TrudnocaAppModel.edmx.diagram">
+      <DependentUpon>TrudnocaAppModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bebica resized.png" />
+    <None Include="Resources\registracija.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\kick smaller.png" />
+    <Content Include="Resources\klik resized.jpg" />
+    <Content Include="Resources\log out smaller.png" />
+    <Content Include="Resources\moja beba sve pozadina.jpg" />
+    <Content Include="Resources\mom resized.jpg" />
+    <Content Include="Resources\novi klik resized.png" />
+    <Content Include="Resources\pozadina_glavna.jpg" />
+    <Content Include="TrudnocaAppModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrudnocaAppModel.edmx</DependentUpon>
+      <LastGenOutput>TrudnocaAppModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TrudnocaAppModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrudnocaAppModel.edmx</DependentUpon>
+      <LastGenOutput>TrudnocaAppModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrudnocaAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Beba">
+    <Key>
+      <PropertyRef Name="IdBebe" />
+    </Key>
+    <Property Name="IdBebe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Spol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Beba__IdKorisnik__2B3F6F97" FromRole="Beba" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Godine" Type="Int32" Nullable="false" />
+    <Property Name="PrvaTrudnoca" Type="Boolean" Nullable="false" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Beba" Relationship="Self.FK__Beba__IdKorisnik__2B3F6F97" FromRole="Korisnici" ToRole="Beba" />
+    <NavigationProperty Name="Registar" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Korisnici" ToRole="Registar" />
+    <NavigationProperty Name="Udarci" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Korisnici" ToRole="Udarci" />
+  </EntityType>
+  <EntityType Name="Registar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vrijeme" Type="DateTime" Precision="3" />
+    <Property Name="VrstaPromjene" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Registar" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="Udarci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DatumPocetak" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DatumKraj" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Udarci1" Type="Int32" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Udarci" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="Velicina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PocetniMjesec" Type="Int32" Nullable="false" />
+    <Property Name="ZavrsniMjesec" Type="Int32" Nullable="false" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Beba__IdKorisnik__2B3F6F97">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Beba" Type="Self.Beba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Beba">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registar__IdKori__3A81B327">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registar">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Udarci__IdKorisn__34C8D9D1">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Udarci" Type="Self.Udarci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Udarci">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrudnocaAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Beba" EntityType="Self.Beba" />
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+    <EntitySet Name="Registar" EntityType="Self.Registar" />
+    <EntitySet Name="Udarci" EntityType="Self.Udarci" />
+    <EntitySet Name="Velicina" EntityType="Self.Velicina" />
+    <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Beba" EntitySet="Beba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Registar" EntitySet="Registar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Udarci" EntitySet="Udarci" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

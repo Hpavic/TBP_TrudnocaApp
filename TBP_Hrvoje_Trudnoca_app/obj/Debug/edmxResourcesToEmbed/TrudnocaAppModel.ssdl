@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrudnocaAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Beba">
+    <Key>
+      <PropertyRef Name="IdBebe" />
+    </Key>
+    <Property Name="IdBebe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naziv" Type="varchar" MaxLength="50" />
+    <Property Name="Spol" Type="varchar" MaxLength="50" />
+    <Property Name="IdKorisnika" Type="int" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lozinka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Godine" Type="int" Nullable="false" />
+    <Property Name="PrvaTrudnoca" Type="bit" Nullable="false" />
+    <Property Name="DueDate" Type="date" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Registar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vrijeme" Type="datetime" />
+    <Property Name="VrstaPromjene" Type="varchar" MaxLength="50" />
+    <Property Name="IdKorisnika" Type="int" />
+  </EntityType>
+  <EntityType Name="Udarci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DatumPocetak" Type="datetime" Nullable="false" />
+    <Property Name="DatumKraj" Type="datetime" Nullable="false" />
+    <Property Name="Udarci" Type="int" />
+    <Property Name="IdKorisnika" Type="int" />
+  </EntityType>
+  <EntityType Name="Velicina">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocetniMjesec" Type="int" Nullable="false" />
+    <Property Name="ZavrsniMjesec" Type="int" Nullable="false" />
+    <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Beba__IdKorisnik__2B3F6F97">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Beba" Type="Self.Beba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Beba">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registar__IdKori__3A81B327">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registar">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Udarci__IdKorisn__34C8D9D1">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Udarci" Type="Self.Udarci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Udarci">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrudnocaAppModelStoreContainer">
+    <EntitySet Name="Beba" EntityType="Self.Beba" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registar" EntityType="Self.Registar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Udarci" EntityType="Self.Udarci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Velicina" EntityType="Self.Velicina" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Beba" EntitySet="Beba" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Registar" EntitySet="Registar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Udarci" EntitySet="Udarci" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

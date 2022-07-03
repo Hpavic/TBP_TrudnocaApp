@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TrudnocaAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Beba">
+          <Key>
+            <PropertyRef Name="IdBebe" />
+          </Key>
+          <Property Name="IdBebe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" />
+          <Property Name="Spol" Type="varchar" MaxLength="50" />
+          <Property Name="IdKorisnika" Type="int" />
+        </EntityType>
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lozinka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Godine" Type="int" Nullable="false" />
+          <Property Name="PrvaTrudnoca" Type="bit" Nullable="false" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Registar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vrijeme" Type="datetime" />
+          <Property Name="VrstaPromjene" Type="varchar" MaxLength="50" />
+          <Property Name="IdKorisnika" Type="int" />
+        </EntityType>
+        <EntityType Name="Udarci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatumPocetak" Type="datetime" Nullable="false" />
+          <Property Name="DatumKraj" Type="datetime" Nullable="false" />
+          <Property Name="Udarci" Type="int" />
+          <Property Name="IdKorisnika" Type="int" />
+        </EntityType>
+        <EntityType Name="Velicina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PocetniMjesec" Type="int" Nullable="false" />
+          <Property Name="ZavrsniMjesec" Type="int" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Beba__IdKorisnik__2B3F6F97">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Beba" Type="Self.Beba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beba">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registar__IdKori__3A81B327">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Registar">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Udarci__IdKorisn__34C8D9D1">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Udarci" Type="Self.Udarci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Udarci">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrudnocaAppModelStoreContainer">
+          <EntitySet Name="Beba" EntityType="Self.Beba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registar" EntityType="Self.Registar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Udarci" EntityType="Self.Udarci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Velicina" EntityType="Self.Velicina" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Beba" EntitySet="Beba" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Registar" EntitySet="Registar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Udarci" EntitySet="Udarci" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrudnocaAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Beba">
+          <Key>
+            <PropertyRef Name="IdBebe" />
+          </Key>
+          <Property Name="IdBebe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdKorisnika" Type="Int32" />
+          <NavigationProperty Name="Korisnici" Relationship="Self.FK__Beba__IdKorisnik__2B3F6F97" FromRole="Beba" ToRole="Korisnici" />
+        </EntityType>
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Godine" Type="Int32" Nullable="false" />
+          <Property Name="PrvaTrudnoca" Type="Boolean" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Beba" Relationship="Self.FK__Beba__IdKorisnik__2B3F6F97" FromRole="Korisnici" ToRole="Beba" />
+          <NavigationProperty Name="Registar" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Korisnici" ToRole="Registar" />
+          <NavigationProperty Name="Udarci" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Korisnici" ToRole="Udarci" />
+        </EntityType>
+        <EntityType Name="Registar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vrijeme" Type="DateTime" Precision="3" />
+          <Property Name="VrstaPromjene" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdKorisnika" Type="Int32" />
+          <NavigationProperty Name="Korisnici" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Registar" ToRole="Korisnici" />
+        </EntityType>
+        <EntityType Name="Udarci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatumPocetak" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumKraj" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Udarci1" Type="Int32" />
+          <Property Name="IdKorisnika" Type="Int32" />
+          <NavigationProperty Name="Korisnici" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Udarci" ToRole="Korisnici" />
+        </EntityType>
+        <EntityType Name="Velicina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PocetniMjesec" Type="Int32" Nullable="false" />
+          <Property Name="ZavrsniMjesec" Type="Int32" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Beba__IdKorisnik__2B3F6F97">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Beba" Type="Self.Beba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beba">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Registar__IdKori__3A81B327">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Registar">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Udarci__IdKorisn__34C8D9D1">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+          <End Role="Udarci" Type="Self.Udarci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Udarci">
+              <PropertyRef Name="IdKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrudnocaAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Beba" EntityType="Self.Beba" />
+          <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+          <EntitySet Name="Registar" EntityType="Self.Registar" />
+          <EntitySet Name="Udarci" EntityType="Self.Udarci" />
+          <EntitySet Name="Velicina" EntityType="Self.Velicina" />
+          <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Beba" EntitySet="Beba" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Registar" EntitySet="Registar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Udarci" EntitySet="Udarci" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrudnocaAppModelStoreContainer" CdmEntityContainer="TrudnocaAppEntities">
+          <EntitySetMapping Name="Beba">
+            <EntityTypeMapping TypeName="TrudnocaAppModel.Beba">
+              <MappingFragment StoreEntitySet="Beba">
+                <ScalarProperty Name="IdBebe" ColumnName="IdBebe" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Spol" ColumnName="Spol" />
+                <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisnici">
+            <EntityTypeMapping TypeName="TrudnocaAppModel.Korisnici">
+              <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Godine" ColumnName="Godine" />
+                <ScalarProperty Name="PrvaTrudnoca" ColumnName="PrvaTrudnoca" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registar">
+            <EntityTypeMapping TypeName="TrudnocaAppModel.Registar">
+              <MappingFragment StoreEntitySet="Registar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="VrstaPromjene" ColumnName="VrstaPromjene" />
+                <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Udarci">
+            <EntityTypeMapping TypeName="TrudnocaAppModel.Udarci">
+              <MappingFragment StoreEntitySet="Udarci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DatumPocetak" ColumnName="DatumPocetak" />
+                <ScalarProperty Name="DatumKraj" ColumnName="DatumKraj" />
+                <ScalarProperty Name="Udarci1" ColumnName="Udarci" />
+                <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Velicina">
+            <EntityTypeMapping TypeName="TrudnocaAppModel.Velicina">
+              <MappingFragment StoreEntitySet="Velicina">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PocetniMjesec" ColumnName="PocetniMjesec" />
+                <ScalarProperty Name="ZavrsniMjesec" ColumnName="ZavrsniMjesec" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
