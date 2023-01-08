@@ -169,7 +169,7 @@ warning 6002: The table/view 'TBP.Projekt.dbo.RekreacijaPovijest' does not have 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rekreacij__IdKor__5EBF139D">
+  <Association Name="FK__Rekreacij__IdKor__68487DD7">
     <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
     <End Role="Rekreacija" Type="Self.Rekreacija" Multiplicity="*" />
     <ReferentialConstraint>
@@ -240,7 +240,7 @@ warning 6002: The table/view 'TBP.Projekt.dbo.RekreacijaPovijest' does not have 
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Registar" EntitySet="Registar" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rekreacij__IdKor__5EBF139D" Association="Self.FK__Rekreacij__IdKor__5EBF139D">
+    <AssociationSet Name="FK__Rekreacij__IdKor__68487DD7" Association="Self.FK__Rekreacij__IdKor__68487DD7">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Rekreacija" EntitySet="Rekreacija" />
     </AssociationSet>

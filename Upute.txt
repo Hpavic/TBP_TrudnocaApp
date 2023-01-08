@@ -1,5 +1,5 @@
 1. Potrebno je unijeti skriptu za bazu podataka (script.sql) u vlastitu bazu (ja sam radio u MS SQL Server)
 2. Kliknuti na TrudnocaApp.sln (uz instaliran visual studio)
-3. Dodati Entitiy framework. Desni klik na projekt --> add --> new item --> data --> ADO.NET LINQ --> Naziv modela : TrudnocaAppModel --> next --> povezati sa bazom --> Naziv entiteta TrudnocaAppEntities --> odabrati bazu --> iskljuciti plural jer je na hrvatskom --> Naziv TrudnocaAppModel --> ucitaj
+3. AKO JE POTREBNO: Dodati Entitiy framework. Desni klik na projekt --> add --> new item --> data --> ADO.NET LINQ --> Naziv modela : TrudnocaAppModel --> next --> povezati sa bazom --> Naziv entiteta TrudnocaAppEntities --> odabrati bazu --> iskljuciti plural jer je na hrvatskom --> Naziv TrudnocaAppModel --> ucitaj
 4. Pokrene se aplikacija preko visual studia
 5. Dobrodosli na TrudnocaApp

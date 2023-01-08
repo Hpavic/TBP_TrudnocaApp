@@ -26,7 +26,7 @@
     <NavigationProperty Name="Medicina" Relationship="Self.FK__Medicina__IdKori__628FA481" FromRole="Korisnici" ToRole="Medicina" />
     <NavigationProperty Name="NajdraziUdarci" Relationship="Self.FK__NajdraziU__IdKor__5165187F" FromRole="Korisnici" ToRole="NajdraziUdarci" />
     <NavigationProperty Name="Registar" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Korisnici" ToRole="Registar" />
-    <NavigationProperty Name="Rekreacija" Relationship="Self.FK__Rekreacij__IdKor__5EBF139D" FromRole="Korisnici" ToRole="Rekreacija" />
+    <NavigationProperty Name="Rekreacija" Relationship="Self.FK__Rekreacij__IdKor__68487DD7" FromRole="Korisnici" ToRole="Rekreacija" />
     <NavigationProperty Name="Udarci" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Korisnici" ToRole="Udarci" />
   </EntityType>
   <EntityType Name="Medicina">
@@ -77,7 +77,7 @@
     <Property Name="KodKuce" Type="Boolean" Nullable="false" />
     <Property Name="SysStartTime" Type="DateTime" Nullable="false" Precision="7" />
     <Property Name="SysEndTime" Type="DateTime" Nullable="false" Precision="7" />
-    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Rekreacij__IdKor__5EBF139D" FromRole="Rekreacija" ToRole="Korisnici" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Rekreacij__IdKor__68487DD7" FromRole="Rekreacija" ToRole="Korisnici" />
   </EntityType>
   <EntityType Name="Udarci">
     <Key>
@@ -177,7 +177,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rekreacij__IdKor__5EBF139D">
+  <Association Name="FK__Rekreacij__IdKor__68487DD7">
     <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
     <End Role="Rekreacija" Type="Self.Rekreacija" Multiplicity="*" />
     <ReferentialConstraint>
@@ -228,7 +228,7 @@
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Registar" EntitySet="Registar" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rekreacij__IdKor__5EBF139D" Association="Self.FK__Rekreacij__IdKor__5EBF139D">
+    <AssociationSet Name="FK__Rekreacij__IdKor__68487DD7" Association="Self.FK__Rekreacij__IdKor__68487DD7">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Rekreacija" EntitySet="Rekreacija" />
     </AssociationSet>

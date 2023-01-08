@@ -21,7 +21,7 @@ namespace TBP_Hrvoje_Trudnoca_app
         public decimal Cijena { get; set; }
         public System.DateTime VrijediOd { get; set; }
         public System.DateTime VrijediDo { get; set; }
-
+    
         public virtual Korisnici Korisnici { get; set; }
     }
 }
