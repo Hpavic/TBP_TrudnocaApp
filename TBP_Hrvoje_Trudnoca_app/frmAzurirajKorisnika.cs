@@ -240,6 +240,11 @@ namespace TBP_Hrvoje_Trudnoca_app
                 else
                 {
                     context.SaveChanges();
+
+                    int id = DohvatiIdKorisnika();
+                    this.Hide();
+                    frmTrudnocaAppMain frmTrudnocaApp = new frmTrudnocaAppMain(id);
+                    frmTrudnocaApp.ShowDialog();
                 }
             }
         }

@@ -18,7 +18,10 @@ namespace TBP_Hrvoje_Trudnoca_app
         public Korisnici()
         {
             this.Beba = new HashSet<Beba>();
+            this.Medicina = new HashSet<Medicina>();
+            this.NajdraziUdarci = new HashSet<NajdraziUdarci>();
             this.Registar = new HashSet<Registar>();
+            this.Rekreacija = new HashSet<Rekreacija>();
             this.Udarci = new HashSet<Udarci>();
         }
     
@@ -34,7 +37,13 @@ namespace TBP_Hrvoje_Trudnoca_app
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Beba> Beba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Medicina> Medicina { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NajdraziUdarci> NajdraziUdarci { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registar> Registar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rekreacija> Rekreacija { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Udarci> Udarci { get; set; }
     }

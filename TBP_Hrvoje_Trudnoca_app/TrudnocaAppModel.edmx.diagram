@@ -4,14 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0a3cf07978224e4d851eb8bb398de424" Name="Diagram1">
-        <EntityTypeShape EntityType="TrudnocaAppModel.Beba" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrudnocaAppModel.Korisnici" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrudnocaAppModel.Registar" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TrudnocaAppModel.Udarci" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+      <Diagram DiagramId="d3fd9e2afaa442f7a3335a3e22aa9252" Name="Diagram1">
+        <EntityTypeShape EntityType="TrudnocaAppModel.Beba" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Korisnici" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Medicina" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.NajdraziUdarci" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Registar" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Rekreacija" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.Udarci" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TrudnocaAppModel.Velicina" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.MedicinaPovijest" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrudnocaAppModel.RekreacijaPovijest" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TrudnocaAppModel.FK__Beba__IdKorisnik__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__Medicina__IdKori__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__NajdraziU__IdKor__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="TrudnocaAppModel.FK__Registar__IdKori__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="TrudnocaAppModel.FK__Rekreacij__IdKor__5EBF139D" ManuallyRouted="false" />
         <AssociationConnector Association="TrudnocaAppModel.FK__Udarci__IdKorisn__34C8D9D1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

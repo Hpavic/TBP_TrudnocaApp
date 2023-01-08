@@ -25,6 +25,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Medicina">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Medicina">
+        <MappingFragment StoreEntitySet="Medicina">
+          <ScalarProperty Name="IdMedicine" ColumnName="IdMedicine" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="VrijediOd" ColumnName="VrijediOd" />
+          <ScalarProperty Name="VrijediDo" ColumnName="VrijediDo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NajdraziUdarci">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.NajdraziUdarci">
+        <MappingFragment StoreEntitySet="NajdraziUdarci">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdIntervala" ColumnName="IdIntervala" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="PocetakIntervala" ColumnName="PocetakIntervala" />
+          <ScalarProperty Name="RedniBrojUdarca" ColumnName="RedniBrojUdarca" />
+          <ScalarProperty Name="VrijemeUdarca" ColumnName="VrijemeUdarca" />
+          <ScalarProperty Name="KrajIntervala" ColumnName="KrajIntervala" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Registar">
       <EntityTypeMapping TypeName="TrudnocaAppModel.Registar">
         <MappingFragment StoreEntitySet="Registar">
@@ -32,6 +59,19 @@
           <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
           <ScalarProperty Name="VrstaPromjene" ColumnName="VrstaPromjene" />
           <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rekreacija">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.Rekreacija">
+        <MappingFragment StoreEntitySet="Rekreacija">
+          <ScalarProperty Name="IdSetnja" ColumnName="IdSetnja" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Setnja" ColumnName="Setnja" />
+          <ScalarProperty Name="KodKuce" ColumnName="KodKuce" />
+          <ScalarProperty Name="SysStartTime" ColumnName="SysStartTime" />
+          <ScalarProperty Name="SysEndTime" ColumnName="SysEndTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,6 +93,32 @@
           <ScalarProperty Name="PocetniMjesec" ColumnName="PocetniMjesec" />
           <ScalarProperty Name="ZavrsniMjesec" ColumnName="ZavrsniMjesec" />
           <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicinaPovijest">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.MedicinaPovijest">
+        <MappingFragment StoreEntitySet="MedicinaPovijest">
+          <ScalarProperty Name="IdMedicine" ColumnName="IdMedicine" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="VrijediOd" ColumnName="VrijediOd" />
+          <ScalarProperty Name="VrijediDo" ColumnName="VrijediDo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RekreacijaPovijest">
+      <EntityTypeMapping TypeName="TrudnocaAppModel.RekreacijaPovijest">
+        <MappingFragment StoreEntitySet="RekreacijaPovijest">
+          <ScalarProperty Name="IdSetnja" ColumnName="IdSetnja" />
+          <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Setnja" ColumnName="Setnja" />
+          <ScalarProperty Name="KodKuce" ColumnName="KodKuce" />
+          <ScalarProperty Name="SysStartTime" ColumnName="SysStartTime" />
+          <ScalarProperty Name="SysEndTime" ColumnName="SysEndTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

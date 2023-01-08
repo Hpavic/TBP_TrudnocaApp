@@ -23,8 +23,38 @@
     <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Beba" Relationship="Self.FK__Beba__IdKorisnik__2B3F6F97" FromRole="Korisnici" ToRole="Beba" />
+    <NavigationProperty Name="Medicina" Relationship="Self.FK__Medicina__IdKori__628FA481" FromRole="Korisnici" ToRole="Medicina" />
+    <NavigationProperty Name="NajdraziUdarci" Relationship="Self.FK__NajdraziU__IdKor__5165187F" FromRole="Korisnici" ToRole="NajdraziUdarci" />
     <NavigationProperty Name="Registar" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Korisnici" ToRole="Registar" />
+    <NavigationProperty Name="Rekreacija" Relationship="Self.FK__Rekreacij__IdKor__5EBF139D" FromRole="Korisnici" ToRole="Rekreacija" />
     <NavigationProperty Name="Udarci" Relationship="Self.FK__Udarci__IdKorisn__34C8D9D1" FromRole="Korisnici" ToRole="Udarci" />
+  </EntityType>
+  <EntityType Name="Medicina">
+    <Key>
+      <PropertyRef Name="IdMedicine" />
+    </Key>
+    <Property Name="IdMedicine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cijena" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VrijediOd" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="VrijediDo" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Medicina__IdKori__628FA481" FromRole="Medicina" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="NajdraziUdarci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdIntervala" Type="Int32" Nullable="false" />
+    <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PocetakIntervala" Type="Time" Precision="7" />
+    <Property Name="RedniBrojUdarca" Type="Int32" />
+    <Property Name="VrijemeUdarca" Type="Time" Precision="7" />
+    <Property Name="KrajIntervala" Type="Time" Precision="7" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__NajdraziU__IdKor__5165187F" FromRole="NajdraziUdarci" ToRole="Korisnici" />
   </EntityType>
   <EntityType Name="Registar">
     <Key>
@@ -35,6 +65,19 @@
     <Property Name="VrstaPromjene" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IdKorisnika" Type="Int32" />
     <NavigationProperty Name="Korisnici" Relationship="Self.FK__Registar__IdKori__3A81B327" FromRole="Registar" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="Rekreacija">
+    <Key>
+      <PropertyRef Name="IdSetnja" />
+    </Key>
+    <Property Name="IdSetnja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Setnja" Type="Int32" />
+    <Property Name="KodKuce" Type="Boolean" Nullable="false" />
+    <Property Name="SysStartTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="SysEndTime" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Rekreacij__IdKor__5EBF139D" FromRole="Rekreacija" ToRole="Korisnici" />
   </EntityType>
   <EntityType Name="Udarci">
     <Key>
@@ -56,6 +99,36 @@
     <Property Name="ZavrsniMjesec" Type="Int32" Nullable="false" />
     <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
+  <EntityType Name="MedicinaPovijest">
+    <Key>
+      <PropertyRef Name="IdMedicine" />
+      <PropertyRef Name="Cijena" />
+      <PropertyRef Name="VrijediOd" />
+      <PropertyRef Name="VrijediDo" />
+    </Key>
+    <Property Name="IdMedicine" Type="Int32" Nullable="false" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cijena" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VrijediOd" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="VrijediDo" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="RekreacijaPovijest">
+    <Key>
+      <PropertyRef Name="IdSetnja" />
+      <PropertyRef Name="KodKuce" />
+      <PropertyRef Name="SysStartTime" />
+      <PropertyRef Name="SysEndTime" />
+    </Key>
+    <Property Name="IdSetnja" Type="Int32" Nullable="false" />
+    <Property Name="IdKorisnika" Type="Int32" />
+    <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Setnja" Type="Int32" />
+    <Property Name="KodKuce" Type="Boolean" Nullable="false" />
+    <Property Name="SysStartTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="SysEndTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
   <Association Name="FK__Beba__IdKorisnik__2B3F6F97">
     <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
     <End Role="Beba" Type="Self.Beba" Multiplicity="*" />
@@ -68,6 +141,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Medicina__IdKori__628FA481">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Medicina" Type="Self.Medicina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicina">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NajdraziU__IdKor__5165187F">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="NajdraziUdarci" Type="Self.NajdraziUdarci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NajdraziUdarci">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Registar__IdKori__3A81B327">
     <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
     <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
@@ -76,6 +173,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Registar">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rekreacij__IdKor__5EBF139D">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Rekreacija" Type="Self.Rekreacija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rekreacija">
         <PropertyRef Name="IdKorisnika" />
       </Dependent>
     </ReferentialConstraint>
@@ -95,16 +204,33 @@
   <EntityContainer Name="TrudnocaAppEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Beba" EntityType="Self.Beba" />
     <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+    <EntitySet Name="Medicina" EntityType="Self.Medicina" />
+    <EntitySet Name="NajdraziUdarci" EntityType="Self.NajdraziUdarci" />
     <EntitySet Name="Registar" EntityType="Self.Registar" />
+    <EntitySet Name="Rekreacija" EntityType="Self.Rekreacija" />
     <EntitySet Name="Udarci" EntityType="Self.Udarci" />
     <EntitySet Name="Velicina" EntityType="Self.Velicina" />
+    <EntitySet Name="MedicinaPovijest" EntityType="Self.MedicinaPovijest" />
+    <EntitySet Name="RekreacijaPovijest" EntityType="Self.RekreacijaPovijest" />
     <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Beba" EntitySet="Beba" />
     </AssociationSet>
+    <AssociationSet Name="FK__Medicina__IdKori__628FA481" Association="Self.FK__Medicina__IdKori__628FA481">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Medicina" EntitySet="Medicina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NajdraziU__IdKor__5165187F" Association="Self.FK__NajdraziU__IdKor__5165187F">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="NajdraziUdarci" EntitySet="NajdraziUdarci" />
+    </AssociationSet>
     <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Registar" EntitySet="Registar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rekreacij__IdKor__5EBF139D" Association="Self.FK__Rekreacij__IdKor__5EBF139D">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Rekreacija" EntitySet="Rekreacija" />
     </AssociationSet>
     <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
       <End Role="Korisnici" EntitySet="Korisnici" />

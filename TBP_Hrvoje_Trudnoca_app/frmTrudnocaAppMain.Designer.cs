@@ -39,6 +39,10 @@
             this.btnAzuriraj = new TBP_Hrvoje_Trudnoca_app.RoundButton();
             this.labelAzurirajPodatke = new System.Windows.Forms.Label();
             this.dgvRegistar = new System.Windows.Forms.DataGridView();
+            this.labelRekreacija = new System.Windows.Forms.Label();
+            this.roundButtonRekreacija = new TBP_Hrvoje_Trudnoca_app.RoundButton();
+            this.labelMedicina = new System.Windows.Forms.Label();
+            this.roundButtonMedicina = new TBP_Hrvoje_Trudnoca_app.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +99,7 @@
             // btnLogOut
             // 
             this.btnLogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.BackgroundImage")));
-            this.btnLogOut.Location = new System.Drawing.Point(780, 8);
+            this.btnLogOut.Location = new System.Drawing.Point(778, 8);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(90, 90);
             this.btnLogOut.TabIndex = 7;
@@ -164,12 +168,70 @@
             this.dgvRegistar.TabIndex = 12;
             this.dgvRegistar.Visible = false;
             // 
+            // labelRekreacija
+            // 
+            this.labelRekreacija.AutoSize = true;
+            this.labelRekreacija.BackColor = System.Drawing.Color.LightPink;
+            this.labelRekreacija.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelRekreacija.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRekreacija.ForeColor = System.Drawing.Color.Green;
+            this.labelRekreacija.Location = new System.Drawing.Point(218, 504);
+            this.labelRekreacija.Name = "labelRekreacija";
+            this.labelRekreacija.Size = new System.Drawing.Size(110, 22);
+            this.labelRekreacija.TabIndex = 13;
+            this.labelRekreacija.Text = "Rekreacija";
+            // 
+            // roundButtonRekreacija
+            // 
+            this.roundButtonRekreacija.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.roundButtonRekreacija.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButtonRekreacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButtonRekreacija.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.roundButtonRekreacija.Location = new System.Drawing.Point(144, 550);
+            this.roundButtonRekreacija.Name = "roundButtonRekreacija";
+            this.roundButtonRekreacija.Size = new System.Drawing.Size(260, 240);
+            this.roundButtonRekreacija.TabIndex = 14;
+            this.roundButtonRekreacija.Text = "REKREIRAJ SE !";
+            this.roundButtonRekreacija.UseVisualStyleBackColor = false;
+            this.roundButtonRekreacija.Click += new System.EventHandler(this.roundButtonRekreacija_Click);
+            // 
+            // labelMedicina
+            // 
+            this.labelMedicina.AutoSize = true;
+            this.labelMedicina.BackColor = System.Drawing.Color.LightPink;
+            this.labelMedicina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMedicina.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedicina.ForeColor = System.Drawing.Color.Green;
+            this.labelMedicina.Location = new System.Drawing.Point(554, 504);
+            this.labelMedicina.Name = "labelMedicina";
+            this.labelMedicina.Size = new System.Drawing.Size(95, 22);
+            this.labelMedicina.TabIndex = 15;
+            this.labelMedicina.Text = "Medicina";
+            // 
+            // roundButtonMedicina
+            // 
+            this.roundButtonMedicina.BackColor = System.Drawing.Color.Silver;
+            this.roundButtonMedicina.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.roundButtonMedicina.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButtonMedicina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.roundButtonMedicina.Location = new System.Drawing.Point(468, 550);
+            this.roundButtonMedicina.Name = "roundButtonMedicina";
+            this.roundButtonMedicina.Size = new System.Drawing.Size(260, 240);
+            this.roundButtonMedicina.TabIndex = 16;
+            this.roundButtonMedicina.Text = "MOJI LIJEKOVI";
+            this.roundButtonMedicina.UseVisualStyleBackColor = false;
+            this.roundButtonMedicina.Click += new System.EventHandler(this.roundButtonMedicina_Click);
+            // 
             // frmTrudnocaAppMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TBP_Hrvoje_Trudnoca_app.Properties.Resources.registracija;
-            this.ClientSize = new System.Drawing.Size(882, 527);
+            this.ClientSize = new System.Drawing.Size(878, 823);
+            this.Controls.Add(this.roundButtonMedicina);
+            this.Controls.Add(this.labelMedicina);
+            this.Controls.Add(this.roundButtonRekreacija);
+            this.Controls.Add(this.labelRekreacija);
             this.Controls.Add(this.dgvRegistar);
             this.Controls.Add(this.labelAzurirajPodatke);
             this.Controls.Add(this.btnAzuriraj);
@@ -203,5 +265,9 @@
         private RoundButton btnAzuriraj;
         private System.Windows.Forms.Label labelAzurirajPodatke;
         private System.Windows.Forms.DataGridView dgvRegistar;
+        private System.Windows.Forms.Label labelRekreacija;
+        private RoundButton roundButtonRekreacija;
+        private System.Windows.Forms.Label labelMedicina;
+        private RoundButton roundButtonMedicina;
     }
 }

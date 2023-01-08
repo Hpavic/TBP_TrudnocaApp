@@ -22,6 +22,48 @@
     <Property Name="DueDate" Type="date" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Medicina">
+    <Key>
+      <PropertyRef Name="IdMedicine" />
+    </Key>
+    <Property Name="IdMedicine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" />
+    <Property Name="Naziv" Type="varchar" MaxLength="50" />
+    <Property Name="Opis" Type="varchar" MaxLength="50" />
+    <Property Name="Cijena" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VrijediOd" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="VrijediDo" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TBP.Projekt.dbo.MedicinaPovijest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MedicinaPovijest">
+    <Key>
+      <PropertyRef Name="IdMedicine" />
+      <PropertyRef Name="Cijena" />
+      <PropertyRef Name="VrijediOd" />
+      <PropertyRef Name="VrijediDo" />
+    </Key>
+    <Property Name="IdMedicine" Type="int" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" />
+    <Property Name="Naziv" Type="varchar" MaxLength="50" />
+    <Property Name="Opis" Type="varchar" MaxLength="50" />
+    <Property Name="Cijena" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="VrijediOd" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="VrijediDo" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NajdraziUdarci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdIntervala" Type="int" Nullable="false" />
+    <Property Name="Datum" Type="date" Nullable="false" />
+    <Property Name="PocetakIntervala" Type="time" Precision="7" />
+    <Property Name="RedniBrojUdarca" Type="int" />
+    <Property Name="VrijemeUdarca" Type="time" Precision="7" />
+    <Property Name="KrajIntervala" Type="time" Precision="7" />
+    <Property Name="IdKorisnika" Type="int" />
+  </EntityType>
   <EntityType Name="Registar">
     <Key>
       <PropertyRef Name="Id" />
@@ -30,6 +72,35 @@
     <Property Name="Vrijeme" Type="datetime" />
     <Property Name="VrstaPromjene" Type="varchar" MaxLength="50" />
     <Property Name="IdKorisnika" Type="int" />
+  </EntityType>
+  <EntityType Name="Rekreacija">
+    <Key>
+      <PropertyRef Name="IdSetnja" />
+    </Key>
+    <Property Name="IdSetnja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" />
+    <Property Name="Opis" Type="varchar" MaxLength="50" />
+    <Property Name="Setnja" Type="int" />
+    <Property Name="KodKuce" Type="bit" Nullable="false" />
+    <Property Name="SysStartTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="SysEndTime" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TBP.Projekt.dbo.RekreacijaPovijest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RekreacijaPovijest">
+    <Key>
+      <PropertyRef Name="IdSetnja" />
+      <PropertyRef Name="KodKuce" />
+      <PropertyRef Name="SysStartTime" />
+      <PropertyRef Name="SysEndTime" />
+    </Key>
+    <Property Name="IdSetnja" Type="int" Nullable="false" />
+    <Property Name="IdKorisnika" Type="int" />
+    <Property Name="Opis" Type="varchar" MaxLength="50" />
+    <Property Name="Setnja" Type="int" />
+    <Property Name="KodKuce" Type="bit" Nullable="false" />
+    <Property Name="SysStartTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="SysEndTime" Type="datetime2" Precision="7" Nullable="false" />
   </EntityType>
   <EntityType Name="Udarci">
     <Key>
@@ -62,6 +133,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Medicina__IdKori__628FA481">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Medicina" Type="Self.Medicina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicina">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NajdraziU__IdKor__5165187F">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="NajdraziUdarci" Type="Self.NajdraziUdarci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NajdraziUdarci">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Registar__IdKori__3A81B327">
     <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
     <End Role="Registar" Type="Self.Registar" Multiplicity="*" />
@@ -70,6 +165,18 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Registar">
+        <PropertyRef Name="IdKorisnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rekreacij__IdKor__5EBF139D">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="0..1" />
+    <End Role="Rekreacija" Type="Self.Rekreacija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rekreacija">
         <PropertyRef Name="IdKorisnika" />
       </Dependent>
     </ReferentialConstraint>
@@ -89,16 +196,53 @@
   <EntityContainer Name="TrudnocaAppModelStoreContainer">
     <EntitySet Name="Beba" EntityType="Self.Beba" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicina" EntityType="Self.Medicina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NajdraziUdarci" EntityType="Self.NajdraziUdarci" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registar" EntityType="Self.Registar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rekreacija" EntityType="Self.Rekreacija" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Udarci" EntityType="Self.Udarci" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Velicina" EntityType="Self.Velicina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicinaPovijest" EntityType="Self.MedicinaPovijest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MedicinaPovijest].[IdMedicine] AS [IdMedicine], 
+    [MedicinaPovijest].[IdKorisnika] AS [IdKorisnika], 
+    [MedicinaPovijest].[Naziv] AS [Naziv], 
+    [MedicinaPovijest].[Opis] AS [Opis], 
+    [MedicinaPovijest].[Cijena] AS [Cijena], 
+    [MedicinaPovijest].[VrijediOd] AS [VrijediOd], 
+    [MedicinaPovijest].[VrijediDo] AS [VrijediDo]
+    FROM [dbo].[MedicinaPovijest] AS [MedicinaPovijest]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RekreacijaPovijest" EntityType="Self.RekreacijaPovijest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RekreacijaPovijest].[IdSetnja] AS [IdSetnja], 
+    [RekreacijaPovijest].[IdKorisnika] AS [IdKorisnika], 
+    [RekreacijaPovijest].[Opis] AS [Opis], 
+    [RekreacijaPovijest].[Setnja] AS [Setnja], 
+    [RekreacijaPovijest].[KodKuce] AS [KodKuce], 
+    [RekreacijaPovijest].[SysStartTime] AS [SysStartTime], 
+    [RekreacijaPovijest].[SysEndTime] AS [SysEndTime]
+    FROM [dbo].[RekreacijaPovijest] AS [RekreacijaPovijest]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Beba__IdKorisnik__2B3F6F97" Association="Self.FK__Beba__IdKorisnik__2B3F6F97">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Beba" EntitySet="Beba" />
     </AssociationSet>
+    <AssociationSet Name="FK__Medicina__IdKori__628FA481" Association="Self.FK__Medicina__IdKori__628FA481">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Medicina" EntitySet="Medicina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NajdraziU__IdKor__5165187F" Association="Self.FK__NajdraziU__IdKor__5165187F">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="NajdraziUdarci" EntitySet="NajdraziUdarci" />
+    </AssociationSet>
     <AssociationSet Name="FK__Registar__IdKori__3A81B327" Association="Self.FK__Registar__IdKori__3A81B327">
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Registar" EntitySet="Registar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rekreacij__IdKor__5EBF139D" Association="Self.FK__Rekreacij__IdKor__5EBF139D">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Rekreacija" EntitySet="Rekreacija" />
     </AssociationSet>
     <AssociationSet Name="FK__Udarci__IdKorisn__34C8D9D1" Association="Self.FK__Udarci__IdKorisn__34C8D9D1">
       <End Role="Korisnici" EntitySet="Korisnici" />

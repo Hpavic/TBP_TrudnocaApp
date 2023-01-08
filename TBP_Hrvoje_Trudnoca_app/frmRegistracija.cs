@@ -87,6 +87,9 @@ namespace TBP_Hrvoje_Trudnoca_app
             if (ProvjeriEmail() == false)
                 labelEmailNeispravan.Visible = true;
 
+            if (ProvjeriDupliEmail() == true)
+                labelEmailNeispravan.Visible = true;
+
             if (tbPonovljenaLozinka.Text != tbLozinka.Text)
                 labelPonovljenaLozinkaPogresna.Visible = true;
 
@@ -112,6 +115,23 @@ namespace TBP_Hrvoje_Trudnoca_app
                 labelEmailNeispravan.Visible = true;
                 return false;
             }
+        }
+
+        private bool ProvjeriDupliEmail()
+        {
+            using (var context = new TrudnocaAppEntities())
+            {
+                var query = from k in context.Korisnici
+                            select k.Email;
+
+                foreach (var item in query)
+                {
+                    if (item == tbEmail.Text)
+                        return true;
+                }
+            }
+
+            return false;
         }
 
         private bool ProvjeriDuploKorisnickoIme()

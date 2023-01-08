@@ -106,5 +106,21 @@ namespace TBP_Hrvoje_Trudnoca_app
             frmAzurirajKorisnika formAzurirajKorisnika = new frmAzurirajKorisnika(korisnikovaBeba);
             formAzurirajKorisnika.ShowDialog();
         }
+
+        private void roundButtonRekreacija_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            int korisnikovId = idKorisnika;
+            frmRekreacija formaRekreacija = new frmRekreacija(korisnikovId);
+            formaRekreacija.ShowDialog();
+        }
+
+        private void roundButtonMedicina_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            int korisnikovId = idKorisnika;
+            frmMedicina formaMedicina = new frmMedicina(korisnikovId);
+            formaMedicina.ShowDialog();
+        }
     }
 }

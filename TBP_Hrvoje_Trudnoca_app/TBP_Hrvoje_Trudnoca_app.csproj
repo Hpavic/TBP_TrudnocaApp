@@ -64,6 +64,12 @@
     <Compile Include="frmAzurirajKorisnika.Designer.cs">
       <DependentUpon>frmAzurirajKorisnika.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMedicina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedicina.Designer.cs">
+      <DependentUpon>frmMedicina.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMojaBeba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     <Compile Include="frmRegistracija.Designer.cs">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRekreacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRekreacija.Designer.cs">
+      <DependentUpon>frmRekreacija.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUdarci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,15 @@
     </Compile>
     <Compile Include="Korisnici.code.cs" />
     <Compile Include="Korisnici.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medicina.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicinaPovijest.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NajdraziUdarci.cs">
       <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -101,6 +122,12 @@
       <DependentUpon>frmTrudnocaAppMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Registar.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rekreacija.cs">
+      <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RekreacijaPovijest.cs">
       <DependentUpon>TrudnocaAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RoundButton.cs">
@@ -130,6 +157,9 @@
     <EmbeddedResource Include="frmAzurirajKorisnika.resx">
       <DependentUpon>frmAzurirajKorisnika.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMedicina.resx">
+      <DependentUpon>frmMedicina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMojaBeba.resx">
       <DependentUpon>frmMojaBeba.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistracija.resx">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRekreacija.resx">
+      <DependentUpon>frmRekreacija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUdarci.resx">
       <DependentUpon>frmUdarci.cs</DependentUpon>

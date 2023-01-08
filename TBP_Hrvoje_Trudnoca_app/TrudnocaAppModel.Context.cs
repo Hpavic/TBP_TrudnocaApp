@@ -27,8 +27,13 @@ namespace TBP_Hrvoje_Trudnoca_app
     
         public virtual DbSet<Beba> Beba { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
+        public virtual DbSet<Medicina> Medicina { get; set; }
+        public virtual DbSet<NajdraziUdarci> NajdraziUdarci { get; set; }
         public virtual DbSet<Registar> Registar { get; set; }
+        public virtual DbSet<Rekreacija> Rekreacija { get; set; }
         public virtual DbSet<Udarci> Udarci { get; set; }
         public virtual DbSet<Velicina> Velicina { get; set; }
+        public virtual DbSet<MedicinaPovijest> MedicinaPovijest { get; set; }
+        public virtual DbSet<RekreacijaPovijest> RekreacijaPovijest { get; set; }
     }
 }
